@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "preserveConstEnums": true,
+        "declaration": true,
+        "target": "es6",
+        "lib": ["es2016", "dom"],
+        "outDir": "./dist"
+    }
+}

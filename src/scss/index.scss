@@ -3,7 +3,7 @@
 
 @import "header";
 @import "formula";
-@import "tabel";
+@import "table";
 @import "toolbar";
 @import "dashboard";
 
@@ -19,7 +19,7 @@ body {
 
 .excel {
     position: relative;
-    color: #000000;
+    color: #888;
     height: 100%;
     max-width: 100%;
     font-size: 0.8rem;
