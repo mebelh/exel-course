@@ -18,11 +18,13 @@ export function resizeHandler($root, event) {
             $resizer.css({ left: value + "px", bottom: "-100vh" });
         } else {
             const delta = e.pageY - cords.bottom;
+
+            console.log(cords);
             value = cords.height + delta;
             $resizer.css({ right: "-100vw", top: value + "px" });
         }
     };
-    document.onmouseup = (e) => {
+    document.onmouseup = () => {
         document.onmousemove = null;
         document.onmouseup = null;
         if (type === "col") {

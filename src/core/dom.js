@@ -30,6 +30,22 @@ class Dom {
         this.$el.removeEventListener(eventType, callback);
     }
 
+    find(selector) {
+        return $(this.$el.querySelector(selector));
+    }
+
+    text(text) {
+        if (typeof text === "string") {
+            this.$el.textContent = text;
+            return this;
+        }
+        if (this.$el.tagName.toLowerCase() === "input") {
+            return this.$el.value.trim();
+        }
+        // console.log(text);
+        return this.$el.textContent.trim();
+    }
+
     // Element
     append(node) {
         if (node instanceof Dom) {
@@ -65,6 +81,30 @@ class Dom {
         Object.keys(styles).forEach(
             (key) => (this.$el.style[key] = styles[key])
         );
+    }
+
+    id(parse) {
+        if (parse)
+            return {
+                row: +this.id().split(":")[0],
+                col: +this.id().split(":")[1],
+            };
+        return this.data.id;
+    }
+
+    focus() {
+        this.$el.focus();
+        return this;
+    }
+
+    addClass(className) {
+        this.$el.classList.add(className);
+        return this;
+    }
+
+    removeClass(className) {
+        this.$el.classList.remove(className);
+        return this;
     }
 }
 
